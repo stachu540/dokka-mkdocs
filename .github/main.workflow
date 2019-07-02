@@ -21,7 +21,7 @@ workflow "Pull Request" {
   resolves = [
     "Test JDK8",
     "Test JDK11",
-    "Test JDK12"
+    "Test JDK12",
   ]
   on = "pull_request"
 }
@@ -43,8 +43,9 @@ action "Test JDK12" {
 
 action "Publish" {
   uses = "MrRamych/gradle-actions/openjdk-8@2.1"
-  args = "publish"
+  args = "publish -x test"
   needs = ["branch-filter"]
+  secrets = ["GITHUB_TOKEN", "BINTRAY_KEY"]
 }
 
 action "branch-filter" {
