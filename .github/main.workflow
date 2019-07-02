@@ -12,7 +12,7 @@ workflow "Release" {
     "Test JDK8",
     "Test JDK11",
     "Test JDK12",
-    "Bintray Upload",
+    "Publish",
   ]
   on = "release"
 }
