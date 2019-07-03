@@ -101,6 +101,7 @@ publishing {
             project.shadow.component(this)
             artifact(sourcesJar)
             artifact(javadocJar)
+            pom
         }
     }
 }
