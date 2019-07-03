@@ -22,7 +22,7 @@ action "Publish" {
   uses = "MrRamych/gradle-actions/openjdk-8@2.1"
   args = "publish -x test"
   needs = ["branch-filter"]
-  secrets = ["GITHUB_TOKEN", "BINTRAY_KEY"]
+  secrets = ["BINTRAY_KEY"]
 }
 
 action "branch-filter" {

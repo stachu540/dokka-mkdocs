@@ -83,19 +83,6 @@ artifacts {
 }
 
 publishing {
-    repositories {
-        maven {
-            name = "github"
-            url = uri("https://maven.pkg.github.com/stachu540")
-            mavenContent {
-                releasesOnly()
-            }
-            credentials {
-                username = "stachu540"
-                password = System.getenv("GITHUB_TOKEN")
-            }
-        }
-    }
     publications {
         create<MavenPublication>("dokkaFatJar") {
             project.shadow.component(this)
