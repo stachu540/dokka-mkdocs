@@ -1,16 +1,9 @@
 workflow "Push" {
   resolves = [
-    "Test"
-  ]
-  on = "push"
-}
-
-workflow "Release" {
-  resolves = [
     "Test",
     "Publish",
   ]
-  on = "release"
+  on = "push"
 }
 
 workflow "Pull Request" {
@@ -34,6 +27,6 @@ action "Publish" {
 
 action "branch-filter" {
   uses = "actions/bin/filter@master"
-  args = "branch master"
+  args = "tag"
   needs = ["Test"]
 }
